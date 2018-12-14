@@ -67,13 +67,19 @@ class AnimatedBottomNavBarState extends State<AnimatedBottomNavBar>
   }
 
   @override
+  void dispose() {
+    widget._controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final double _width = MediaQuery.of(context).size.width;
     final double _startHeight =
         90.0; //MediaQuery.of(context).size.height * 0.20;
 
     void onTapControl() {
-      print("tapped a nav button");
+      print("tapped a control button");
     }
 
     return Stack(

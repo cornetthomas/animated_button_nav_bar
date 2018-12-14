@@ -23,6 +23,7 @@ class AnimatedNavButtonState extends State<AnimatedNavButton> {
   @override
   void initState() {
     super.initState();
+
     _opacityAnimation = new Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         parent: widget.controller,
         curve: new Interval(0.25, 0.5, curve: Curves.linear)));

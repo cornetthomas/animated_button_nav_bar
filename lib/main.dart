@@ -5,13 +5,12 @@ import 'dart:math' as math;
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Animated Bottom Nav Demo',
+      title: 'Animated Bottom Navigation',
       theme: new ThemeData(),
-      home: new MyHomePage(title: 'Animated Bottom Nav Demo'),
+      home: new MyHomePage(title: 'Animated Bottom Navigation'),
     );
   }
 }
@@ -43,6 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   initState() {
+    super.initState();
+
     _pageController = new PageController(
       initialPage: _currentPage,
     );
@@ -61,8 +62,13 @@ class _MyHomePageState extends State<MyHomePage> {
         switchPage(3);
       },
     );
+  }
 
-    super.initState();
+  @override
+  void dispose() {
+    _pageController.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -111,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         child: fabIcon,
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
